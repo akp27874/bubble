@@ -3,7 +3,7 @@ var count = 0;
 var hitNum;
 var totalBubbles = 108;
 function makeBubble() {
-    var clutter = "";
+    let clutter = "";
     for (let i = 1; i <= totalBubbles; i++) {
         var rn = Math.floor(Math.random() * 10);
         clutter += `<div class="bubble">${rn}</div>`;
@@ -36,13 +36,25 @@ function calculateScore(){
 }
 
 document.querySelector("#content").addEventListener('click',function(details){
+    // Ensure the clicked element is a bubble
+    if(details.target.classList.contains("bubble")){
     var selectedBubble = Number(details.target.textContent);
+    try{
     if(hitNum === selectedBubble){
         calculateScore();
-        makeBubble();
-        createHit();
-    }
+        // Add burst class only to the clicked bubble
+        details.target.classList.add("burst");
 
+        // Remove bubble after burst animation completes
+        setTimeout(()=>{
+            details.target.remove();
+            // regenerate bubbles only if needed
+            makeBubble();
+            createHit();
+        },600)
+    }
+    }catch(err){console.log(err)}
+    }
     if(details.target.textContent === 'Start'){
         start();
     }
