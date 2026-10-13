@@ -1,17 +1,18 @@
-# bubble
-**Bubble Game**
+# Bubble Game
 
-**Description**:
-Bubble Popping Frenzy is an exciting and addictive mobile game that challenges your speed and precision. In this thrilling game, you're faced with a simple yet exhilarating task - pop the elusive target bubble before time runs out!
+Bubble Game is a timed game where you pop bubbles that match the current **Hit** number. Bubbles rise from the bottom of the play area, drift slightly as they float, and disappear at the top. New bubbles keep appearing while the game is running.
 
+## Play in your browser
 
-**Gameplay**:
-Your mission is to pop a randomly generated target bubble.
-You have a limited time of 60 seconds to locate and pop the target bubble.
-Be quick! The target bubble changes its position with every level as you progress.
+[Open Bubble Game](https://akp27874.github.io/bubble/)
 
-**How to Play**:
-Launch the game and press "Start."
-Use your finger to tap on the screen to pop bubbles.
-Keep your eyes on the target bubble and pop it as quickly as you can.
-Watch the timer! You have 60 seconds to complete each level.
+## How to play
+
+1. Select **Start** to begin the 60-second game.
+2. Check the **Hit** number and click or tap a bubble showing that number.
+3. Each correct bubble earns 10 points, and the target updates to a number on an active bubble.
+4. Keep matching bubbles until the timer runs out.
+
+The game adapts to smaller screens, so you can play on mobile as well as desktop.
+
+> Pop responsibly: these bubbles are full of points, not air!

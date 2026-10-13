@@ -65,6 +65,8 @@ h2{
     width: 100%;
     height: calc(100% - 100px);
     padding: 10px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -87,7 +89,9 @@ h2{
   box-shadow: inset -10px -10px 20px rgba(255,255,255,0.6),
               inset 10px 10px 20px rgba(0,0,0,0.1),
               0 0 25px rgba(173,216,230,0.6);
-  position: relative;
+  position: absolute;
+  left: var(--float-left);
+  bottom: -50px;
   cursor: pointer;
   transition: transform 0.3s ease;
   display: flex;
@@ -96,15 +100,25 @@ h2{
   font-weight: 700;
 }
 
-/* floating animation */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+/* Bubbles rise out of the content area and fade away above it. */
+@keyframes rise {
+  0% {
+    bottom: -50px;
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  10% { opacity: 1; }
+  50% { transform: translateX(calc(-50% + var(--float-drift))); }
+  90% { opacity: 1; }
+  100% {
+    bottom: calc(100% + 50px);
+    opacity: 0;
+    transform: translateX(-50%);
+  }
 }
 
 .bubble {
-  animation: float 3s ease-in-out infinite;
+  animation: rise var(--float-duration) linear var(--float-delay) both;
 }
 
 /* burst effect: quick pop with fragments */
